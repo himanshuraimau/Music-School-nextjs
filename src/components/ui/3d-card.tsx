@@ -1,5 +1,4 @@
 "use client";
-
 import { cn } from "@/utils/cn";
 import Image from "next/image";
 import React, {
@@ -121,9 +120,7 @@ export const CardItem = ({
   const ref = useRef<HTMLDivElement>(null);
   const [isMouseEntered] = useMouseEnter();
 
-  useEffect(() => {
-    handleAnimations();
-  }, [isMouseEntered]);
+  
 
   const handleAnimations = () => {
     if (!ref.current) return;
@@ -133,6 +130,9 @@ export const CardItem = ({
       ref.current.style.transform = `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
     }
   };
+  useEffect(() => {
+    handleAnimations();
+  }, [isMouseEntered, handleAnimations]);
 
   return (
     <Tag
